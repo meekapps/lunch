@@ -34,6 +34,7 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
     self.layer.cornerRadius = 5.0F;
     self.layer.borderColor = [UIColor blackColor].CGColor;
     self.layer.borderWidth = 0.5F;
+    self.clipsToBounds = YES;
   }
   return self;
 }
@@ -55,7 +56,7 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
       
     case UIGestureRecognizerStateChanged: {
       
-      [self update];
+      [self updateWillSwipeDelegate];
       
       CGFloat rotationStrength = MIN(self.translation.x / kRotationStrength, kRotationMax);
       
@@ -87,6 +88,15 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
   }
 }
 
+- (void) updateWillSwipeDelegate {
+  CGFloat opacity = MIN(fabs(self.translation.x)/100, 1.0F);
+  BOOL right = self.translation.x > 0.0F;
+  
+  if ([self.delegate respondsToSelector:@selector(draggablePhotoView:shouldUpdateOverlayWithOpacity:right:)]) {
+    [self.delegate draggablePhotoView:self shouldUpdateOverlayWithOpacity:opacity right:right];
+  }
+}
+
 - (void) finishPan {
   if (self.translation.x > kDragThreshold) {
     [self rightAction];
@@ -99,6 +109,9 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
     [UIView animateWithDuration:0.3
                      animations:^{
                        [self resetPosition];
+                       if ([self.delegate respondsToSelector:@selector(draggablePhotoViewDidCancel:)]) {
+                         [self.delegate draggablePhotoViewDidCancel:self];
+                       }
                      }];
   }
 }

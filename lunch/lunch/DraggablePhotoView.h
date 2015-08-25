@@ -13,9 +13,13 @@
 @class DraggablePhotoView;
 @protocol DraggablePhotoViewDelegate <NSObject>
 
+- (void) draggablePhotoView:(DraggablePhotoView*)photoView shouldUpdateOverlayWithOpacity:(CGFloat)opacity right:(BOOL)right;
+
+- (void) draggablePhotoViewDidCancel:(DraggablePhotoView*)photoView;
+
 - (void) draggablePhotoViewDidSwipeLeft:(DraggablePhotoView*)photoView;
+
 - (void) draggablePhotoViewDidSwipeRight:(DraggablePhotoView*)photoView;
-- (void) draggablePhotoView:(DraggablePhotoView*)photoView updateOverlayWithOpacity:(CGFloat)opacity right:(BOOL)right;
 
 @end
 

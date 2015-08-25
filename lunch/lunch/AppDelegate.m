@@ -15,7 +15,6 @@ static NSString *const kYahooSearchApiKey = @"Jfnn0A6m";
 
 @interface AppDelegate ()
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) CLLocation *recentLocation;
 @end
 
 @implementation AppDelegate
@@ -82,7 +81,8 @@ static NSString *const kYahooSearchApiKey = @"Jfnn0A6m";
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
   self.recentLocation = manager.location;
-  NSLog(@"location: %@", self.recentLocation);
+  
+  [[NSNotificationCenter defaultCenter] postNotificationName:@"UpdatedLocation" object:nil userInfo:nil];
 }
 
 @end

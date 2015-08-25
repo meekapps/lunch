@@ -15,7 +15,7 @@
   if (self) {
     self.backgroundColor = [UIColor whiteColor];
     self.layer.cornerRadius = 5.0F;
-    self.layer.borderColor = [UIColor blackColor].CGColor;
+    self.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.layer.borderWidth = 0.5F;
   }
   return self;

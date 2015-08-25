@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 @interface DetailViewController : UIViewController
 
-@property (copy, nonatomic) NSString *imageUrl;
+@property (strong, nonatomic) id detail;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
