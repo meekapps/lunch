@@ -1,15 +1,14 @@
 //
-//  PhotoView.m
+//  NibView.m
 //  lunch
 //
 //  Created by Mike Keller on 8/25/15.
 //  Copyright (c) 2015 Meek Apps. All rights reserved.
 //
-//  Draggable photo view.
 
-#import "PhotoView.h"
+#import "NibView.h"
 
-@implementation PhotoView
+@implementation NibView
 
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
@@ -19,10 +18,6 @@
   }
   
   return self;
-}
-
-- (IBAction)handlePan:(id)sender {
-  NSLog(@"pan");
 }
 
 @end

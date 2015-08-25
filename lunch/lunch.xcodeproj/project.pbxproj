@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4119B88C1B8CC9E500161FF2 /* NibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4119B88B1B8CC9E500161FF2 /* NibView.m */; };
+		4119B88F1B8CCE3A00161FF2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4119B88E1B8CCE3A00161FF2 /* DetailViewController.m */; };
+		4119B8EC1B8CD17700161FF2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4119B8EB1B8CD17700161FF2 /* Security.framework */; };
 		4148DF461B8CA6F00073075E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF451B8CA6F00073075E /* main.m */; };
 		4148DF491B8CA6F00073075E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF481B8CA6F00073075E /* AppDelegate.m */; };
 		4148DF4C1B8CA6F00073075E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF4B1B8CA6F00073075E /* MainViewController.m */; };
@@ -21,9 +24,10 @@
 		4148DF7D1B8CB3D00073075E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4148DF7C1B8CB3D00073075E /* WebKit.framework */; };
 		4148DF811B8CB5980073075E /* YahooSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4148DF801B8CB5980073075E /* YahooSearchKit.framework */; };
 		4148DF831B8CB5A90073075E /* YahooSearchKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF821B8CB5A90073075E /* YahooSearchKitResources.bundle */; };
-		4148DF881B8CBC490073075E /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF871B8CBC490073075E /* PhotoView.m */; };
-		4148DF8A1B8CBCDB0073075E /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF891B8CBCDB0073075E /* PhotoView.xib */; };
+		4148DF881B8CBC490073075E /* DraggablePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF871B8CBC490073075E /* DraggablePhotoView.m */; };
+		4148DF8A1B8CBCDB0073075E /* DraggablePhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF891B8CBCDB0073075E /* DraggablePhotoView.xib */; };
 		4148DF901B8CBE420073075E /* CircularButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF8F1B8CBE420073075E /* CircularButton.m */; };
+		F77CF0991D3ABD7673A045AA /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A7E0DB17087C42B8E924953E /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4119B88A1B8CC9E500161FF2 /* NibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NibView.h; sourceTree = "<group>"; };
+		4119B88B1B8CC9E500161FF2 /* NibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NibView.m; sourceTree = "<group>"; };
+		4119B88D1B8CCE3A00161FF2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4119B88E1B8CCE3A00161FF2 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4119B8EB1B8CD17700161FF2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4148DF401B8CA6F00073075E /* lunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4148DF441B8CA6F00073075E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4148DF451B8CA6F00073075E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -58,11 +67,14 @@
 		4148DF7C1B8CB3D00073075E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4148DF801B8CB5980073075E /* YahooSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YahooSearchKit.framework; path = lunch/YahooSearchKit.framework; sourceTree = "<group>"; };
 		4148DF821B8CB5A90073075E /* YahooSearchKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YahooSearchKitResources.bundle; sourceTree = "<group>"; };
-		4148DF861B8CBC490073075E /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
-		4148DF871B8CBC490073075E /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
-		4148DF891B8CBCDB0073075E /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
+		4148DF861B8CBC490073075E /* DraggablePhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggablePhotoView.h; sourceTree = "<group>"; };
+		4148DF871B8CBC490073075E /* DraggablePhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggablePhotoView.m; sourceTree = "<group>"; };
+		4148DF891B8CBCDB0073075E /* DraggablePhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DraggablePhotoView.xib; sourceTree = "<group>"; };
 		4148DF8E1B8CBE420073075E /* CircularButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularButton.h; sourceTree = "<group>"; };
 		4148DF8F1B8CBE420073075E /* CircularButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularButton.m; sourceTree = "<group>"; };
+		90EA43CA6CB03909C33B22EC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		A7E0DB17087C42B8E924953E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBCC4A9101E394E367EBFD1E /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,12 +82,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4119B8EC1B8CD17700161FF2 /* Security.framework in Frameworks */,
 				4148DF7D1B8CB3D00073075E /* WebKit.framework in Frameworks */,
 				4148DF7B1B8CB3CA0073075E /* CoreTelephony.framework in Frameworks */,
 				4148DF811B8CB5980073075E /* YahooSearchKit.framework in Frameworks */,
 				4148DF791B8CB3C10073075E /* CoreLocation.framework in Frameworks */,
 				4148DF741B8CB0B00073075E /* SystemConfiguration.framework in Frameworks */,
 				4148DF721B8CB04C0073075E /* libFlurry_6.7.0.a in Frameworks */,
+				F77CF0991D3ABD7673A045AA /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +110,7 @@
 				4148DF421B8CA6F00073075E /* lunch */,
 				4148DF5C1B8CA6F00073075E /* lunchTests */,
 				4148DF411B8CA6F00073075E /* Products */,
+				71412CB5B934B8EC3443F6F4 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,11 +130,15 @@
 				4148DF481B8CA6F00073075E /* AppDelegate.m */,
 				4148DF8E1B8CBE420073075E /* CircularButton.h */,
 				4148DF8F1B8CBE420073075E /* CircularButton.m */,
-				4148DF861B8CBC490073075E /* PhotoView.h */,
-				4148DF871B8CBC490073075E /* PhotoView.m */,
-				4148DF891B8CBCDB0073075E /* PhotoView.xib */,
+				4119B88D1B8CCE3A00161FF2 /* DetailViewController.h */,
+				4119B88E1B8CCE3A00161FF2 /* DetailViewController.m */,
+				4148DF861B8CBC490073075E /* DraggablePhotoView.h */,
+				4148DF871B8CBC490073075E /* DraggablePhotoView.m */,
+				4148DF891B8CBCDB0073075E /* DraggablePhotoView.xib */,
 				4148DF4A1B8CA6F00073075E /* MainViewController.h */,
 				4148DF4B1B8CA6F00073075E /* MainViewController.m */,
+				4119B88A1B8CC9E500161FF2 /* NibView.h */,
+				4119B88B1B8CC9E500161FF2 /* NibView.m */,
 				4148DF4D1B8CA6F00073075E /* Main.storyboard */,
 				4148DF501B8CA6F00073075E /* Images.xcassets */,
 				4148DF521B8CA6F00073075E /* LaunchScreen.xib */,
@@ -168,14 +187,25 @@
 		4148DF751B8CB0BC0073075E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4119B8EB1B8CD17700161FF2 /* Security.framework */,
 				4148DF7A1B8CB3CA0073075E /* CoreTelephony.framework */,
 				4148DF781B8CB3C10073075E /* CoreLocation.framework */,
 				4148DF6F1B8CB0370073075E /* Flurry */,
 				4148DF731B8CB0B00073075E /* SystemConfiguration.framework */,
 				4148DF801B8CB5980073075E /* YahooSearchKit.framework */,
 				4148DF7C1B8CB3D00073075E /* WebKit.framework */,
+				A7E0DB17087C42B8E924953E /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71412CB5B934B8EC3443F6F4 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EBCC4A9101E394E367EBFD1E /* Pods.debug.xcconfig */,
+				90EA43CA6CB03909C33B22EC /* Pods.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,9 +215,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4148DF631B8CA6F00073075E /* Build configuration list for PBXNativeTarget "lunch" */;
 			buildPhases = (
+				A469D5C410D4F301285B0C1C /* Check Pods Manifest.lock */,
 				4148DF3C1B8CA6F00073075E /* Sources */,
 				4148DF3D1B8CA6F00073075E /* Frameworks */,
 				4148DF3E1B8CA6F00073075E /* Resources */,
+				45BB7714F8B6A5C14DA8C55A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,7 +292,7 @@
 			files = (
 				4148DF4F1B8CA6F00073075E /* Main.storyboard in Resources */,
 				4148DF831B8CB5A90073075E /* YahooSearchKitResources.bundle in Resources */,
-				4148DF8A1B8CBCDB0073075E /* PhotoView.xib in Resources */,
+				4148DF8A1B8CBCDB0073075E /* DraggablePhotoView.xib in Resources */,
 				4148DF541B8CA6F00073075E /* LaunchScreen.xib in Resources */,
 				4148DF511B8CA6F00073075E /* Images.xcassets in Resources */,
 			);
@@ -275,6 +307,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		45BB7714F8B6A5C14DA8C55A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A469D5C410D4F301285B0C1C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4148DF3C1B8CA6F00073075E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -282,9 +347,11 @@
 			files = (
 				4148DF4C1B8CA6F00073075E /* MainViewController.m in Sources */,
 				4148DF491B8CA6F00073075E /* AppDelegate.m in Sources */,
+				4119B88C1B8CC9E500161FF2 /* NibView.m in Sources */,
 				4148DF461B8CA6F00073075E /* main.m in Sources */,
 				4148DF901B8CBE420073075E /* CircularButton.m in Sources */,
-				4148DF881B8CBC490073075E /* PhotoView.m in Sources */,
+				4148DF881B8CBC490073075E /* DraggablePhotoView.m in Sources */,
+				4119B88F1B8CCE3A00161FF2 /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -408,6 +475,7 @@
 		};
 		4148DF641B8CA6F00073075E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EBCC4A9101E394E367EBFD1E /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -425,6 +493,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -432,6 +501,7 @@
 		};
 		4148DF651B8CA6F00073075E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 90EA43CA6CB03909C33B22EC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -449,6 +519,7 @@
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
+					"$(inherited)",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -507,6 +578,7 @@
 				4148DF651B8CA6F00073075E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4148DF661B8CA6F00073075E /* Build configuration list for PBXNativeTarget "lunchTests" */ = {
 			isa = XCConfigurationList;
@@ -515,6 +587,7 @@
 				4148DF681B8CA6F00073075E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

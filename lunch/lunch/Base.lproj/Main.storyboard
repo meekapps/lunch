@@ -35,16 +35,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZH-CU-By0" customClass="PhotoView">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YvK-aV-5iC">
                                 <rect key="frame" x="20" y="84" width="335" height="335"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.64313727620000005" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="QZH-CU-By0" secondAttribute="height" multiplier="1:1" id="SQO-YI-bor"/>
+                                    <constraint firstAttribute="width" secondItem="YvK-aV-5iC" secondAttribute="height" multiplier="1:1" id="wbn-3H-Qf4"/>
                                 </constraints>
-                            </view>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KeV-RZ-p1W" userLabel="OK Button" customClass="CircularButton">
                                 <rect key="frame" x="36" y="445" width="80" height="80"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="fv7-QL-E8a"/>
                                     <constraint firstAttribute="height" constant="80" id="hNw-u6-uEs"/>
@@ -52,10 +52,13 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="leftButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="HKO-2a-3es"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6xv-qO-fHn" userLabel="Cancel Button" customClass="CircularButton">
                                 <rect key="frame" x="259" y="445" width="80" height="80"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="5bO-UY-2s5"/>
                                     <constraint firstAttribute="height" constant="80" id="9Tu-bj-tcO"/>
@@ -63,7 +66,20 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="rightButtonAction:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="9Fy-7d-ozV"/>
+                                </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZH-CU-By0" customClass="DraggablePhotoView">
+                                <rect key="frame" x="20" y="84" width="335" height="335"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QZH-CU-By0" secondAttribute="height" multiplier="1:1" id="SQO-YI-bor"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="MEP-KB-AxD"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -71,17 +87,43 @@
                             <constraint firstItem="KeV-RZ-p1W" firstAttribute="top" secondItem="QZH-CU-By0" secondAttribute="bottom" constant="26" id="M7z-pY-lyM"/>
                             <constraint firstItem="KeV-RZ-p1W" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="20" id="OLT-Kb-aG9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="6xv-qO-fHn" secondAttribute="trailing" constant="20" id="RAX-Cm-vS0"/>
+                            <constraint firstItem="YvK-aV-5iC" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="VZ7-k6-Hvp"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="YvK-aV-5iC" secondAttribute="trailing" constant="4" id="WPE-bE-egg"/>
                             <constraint firstItem="6xv-qO-fHn" firstAttribute="top" secondItem="QZH-CU-By0" secondAttribute="bottom" constant="26" id="Wtk-JG-ji0"/>
                             <constraint firstItem="QZH-CU-By0" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="4" id="Z6s-bi-XEz"/>
+                            <constraint firstItem="YvK-aV-5iC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="4" id="sXl-uK-V0V"/>
                             <constraint firstItem="QZH-CU-By0" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="20" id="uGL-IH-Syz"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Huk-wB-3c3"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="behindImageView" destination="YvK-aV-5iC" id="uS4-eD-Ecc"/>
+                        <outlet property="draggablePhotoView" destination="QZH-CU-By0" id="Ppg-8C-DFE"/>
+                        <segue destination="6WQ-vK-epO" kind="show" identifier="ShowDetail" id="3pK-eA-0pn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-500.5" y="69.5"/>
+        </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="bvm-lN-vEj">
+            <objects>
+                <viewController id="6WQ-vK-epO" customClass="DetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZSv-Jo-RP1"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xy2-rM-RFd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l3R-0h-SNl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Kmh-Fo-8bp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-39.5" y="69.5"/>
         </scene>
     </scenes>
 </document>

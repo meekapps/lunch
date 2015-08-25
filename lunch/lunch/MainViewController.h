@@ -7,11 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CircularButton.h"
+#import "DraggablePhotoView.h"
 
-@interface MainViewController : UIViewController
+@class CircularButton;
 
+@interface MainViewController : UIViewController <DraggablePhotoViewDelegate>
+
+@property (weak, nonatomic) IBOutlet DraggablePhotoView *draggablePhotoView;
+@property (weak, nonatomic) IBOutlet UIImageView *behindImageView;
 @property (weak, nonatomic) IBOutlet CircularButton *cancelButton, *okButton;
+
+- (IBAction)leftButtonAction:(id)sender;
+- (IBAction)rightButtonAction:(id)sender;
 
 @end
 
