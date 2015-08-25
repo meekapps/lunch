@@ -7,6 +7,7 @@
 //
 
 #import "DetailViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailViewController ()
 
@@ -15,8 +16,11 @@
 @implementation DetailViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+  [super viewDidLoad];
+  
+  self.goButton.layer.cornerRadius = 5.0F;
+  
+  [self.imageView setImageWithURL:[NSURL URLWithString:self.imageUrl]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +28,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (IBAction)goAction:(id)sender {
+  
 }
-*/
 
 @end

@@ -15,13 +15,13 @@
 
 - (void) draggablePhotoViewDidSwipeLeft:(DraggablePhotoView*)photoView;
 - (void) draggablePhotoViewDidSwipeRight:(DraggablePhotoView*)photoView;
+- (void) draggablePhotoView:(DraggablePhotoView*)photoView updateOverlayWithOpacity:(CGFloat)opacity right:(BOOL)right;
 
 @end
 
 @interface DraggablePhotoView : NibView
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-@property (weak, nonatomic) IBOutlet UILabel *overlayLabel;
 @property (copy, nonatomic) NSString *imageUrl;
 @property (unsafe_unretained, nonatomic, assign) IBOutlet id <DraggablePhotoViewDelegate> delegate;
 

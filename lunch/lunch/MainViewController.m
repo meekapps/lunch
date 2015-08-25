@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import "DetailViewController.h"
 
 @interface MainViewController ()
 @property (strong, nonatomic) NSMutableArray *results;
@@ -43,19 +44,15 @@
   if (self.resultsIndex < self.results.count) {
     self.draggablePhotoView.imageUrl = self.results[self.resultsIndex];
     self.draggablePhotoView.hidden = NO;
+    [self.draggablePhotoView resetPosition];
   } else {
     self.draggablePhotoView.hidden = YES;
   }
   
   //Has another one to show behind.
-  NSUInteger nextIndex = self.resultsIndex < self.results.count - 1 ? self.resultsIndex+1 : 0;
-  if (self.resultsIndex < nextIndex) {
-    NSString *behindImageUrl = self.results[self.resultsIndex+1];
-    [self.behindImageView setImageWithURL:[NSURL URLWithString:behindImageUrl]];
-    self.behindImageView.hidden = NO;
-  } else {
-    self.behindImageView.hidden = YES;
-  }
+  NSUInteger nextIndex = self.resultsIndex < self.results.count - 1 ? self.resultsIndex + 1 : 0;
+  NSString *behindImageUrl = self.results[nextIndex];
+  [self.behindImageView setImageWithURL:[NSURL URLWithString:behindImageUrl]];
 }
 
 #pragma mark - DraggablePhotoViewDelegate
@@ -65,7 +62,8 @@
 }
 
 - (void) draggablePhotoViewDidSwipeRight:(DraggablePhotoView *)photoView {
-  [self handleYes];
+  [self performSegueWithIdentifier:@"ShowDetail" sender:self];
+  [self handleNo];
 }
 
 #pragma mark - Actions
@@ -75,7 +73,15 @@
 }
 
 - (IBAction)rightButtonAction:(id)sender {
-  [self handleYes];
+  [self performSegueWithIdentifier:@"ShowDetail" sender:self];
+  [self performSelector:@selector(handleNo) withObject:nil afterDelay:1.0F];
+}
+
+#pragma mark Navigation
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+  DetailViewController *detailViewController = (DetailViewController*)segue.destinationViewController;
+  detailViewController.imageUrl = self.results[self.resultsIndex];
 }
 
 #pragma mark - Private
@@ -88,10 +94,6 @@
   }
   
   [self updateUi];
-}
-
-- (void) handleYes {
-  [self performSegueWithIdentifier:@"ShowDetail" sender:self];
 }
 
 @end

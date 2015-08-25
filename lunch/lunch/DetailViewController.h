@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MapKit/MapKit.h>
 @interface DetailViewController : UIViewController
+
+@property (copy, nonatomic) NSString *imageUrl;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *goButton;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UITextView *textView;
+
+- (IBAction)goAction:(id)sender;
 
 @end

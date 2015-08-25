@@ -10,7 +10,7 @@
 #import "DraggablePhotoView.h"
 #import "UIImageView+AFNetworking.h"
 
-static CGFloat const kDragThreshold = 120.0F;
+static CGFloat const kDragThreshold = 100.0F;
 static CGFloat const kScaleStrength = 4.0F;
 static CGFloat const kScaleMax = 0.93F;
 static CGFloat const kRotationMax = 1.0F;
@@ -28,7 +28,12 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
 - (instancetype) initWithCoder:(NSCoder *)aDecoder {
   self = [super initWithCoder:aDecoder];
   if (self) {
-    self.overlayLabel.layer.opacity = 0.0F;
+    self.startingPoint = self.center;
+    
+    self.backgroundColor = [UIColor whiteColor];
+    self.layer.cornerRadius = 5.0F;
+    self.layer.borderColor = [UIColor blackColor].CGColor;
+    self.layer.borderWidth = 0.5F;
   }
   return self;
 }
@@ -49,6 +54,9 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
     }
       
     case UIGestureRecognizerStateChanged: {
+      
+      [self update];
+      
       CGFloat rotationStrength = MIN(self.translation.x / kRotationStrength, kRotationMax);
       
       CGFloat rotationAngle = (kRotationAngle * rotationStrength);
@@ -61,8 +69,6 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
       CGAffineTransform scaleTransform = CGAffineTransformScale(transform, scale, scale);
       
       self.layer.transform = CATransform3DMakeAffineTransform(scaleTransform);
-      
-      [self updateOverlay:self.translation.x];
       
       break;
     }
@@ -79,18 +85,6 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
       //do nothing
       break;
   }
-}
-
-- (void) updateOverlay:(CGFloat)x {
-  if (x > 0.0F) {
-    self.overlayLabel.text = @"Yum!";
-    self.overlayLabel.textColor = [UIColor greenColor];
-  } else {
-    self.overlayLabel.text = @"Eww";
-    self.overlayLabel.textColor = [UIColor redColor];
-  }
-  
-  self.overlayLabel.layer.opacity = MIN(fabs(x)/100, 0.4);
 }
 
 - (void) finishPan {
@@ -137,7 +131,6 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
 - (void) resetPosition {
   self.layer.position = self.startingPoint;
   self.layer.transform = CATransform3DIdentity;
-  self.overlayLabel.layer.opacity = 0.0F;
 }
 
 

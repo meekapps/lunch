@@ -10,6 +10,8 @@
 		4119B88C1B8CC9E500161FF2 /* NibView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4119B88B1B8CC9E500161FF2 /* NibView.m */; };
 		4119B88F1B8CCE3A00161FF2 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4119B88E1B8CCE3A00161FF2 /* DetailViewController.m */; };
 		4119B8EC1B8CD17700161FF2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4119B8EB1B8CD17700161FF2 /* Security.framework */; };
+		41359A601B8CDDC600BFE8AC /* RoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41359A5F1B8CDDC600BFE8AC /* RoundedBorderView.m */; };
+		41359A621B8CE28900BFE8AC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A611B8CE28900BFE8AC /* MapKit.framework */; };
 		4148DF461B8CA6F00073075E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF451B8CA6F00073075E /* main.m */; };
 		4148DF491B8CA6F00073075E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF481B8CA6F00073075E /* AppDelegate.m */; };
 		4148DF4C1B8CA6F00073075E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF4B1B8CA6F00073075E /* MainViewController.m */; };
@@ -46,6 +48,9 @@
 		4119B88D1B8CCE3A00161FF2 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		4119B88E1B8CCE3A00161FF2 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		4119B8EB1B8CD17700161FF2 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		41359A5E1B8CDDC600BFE8AC /* RoundedBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderView.h; sourceTree = "<group>"; };
+		41359A5F1B8CDDC600BFE8AC /* RoundedBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderView.m; sourceTree = "<group>"; };
+		41359A611B8CE28900BFE8AC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		4148DF401B8CA6F00073075E /* lunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4148DF441B8CA6F00073075E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4148DF451B8CA6F00073075E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -82,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41359A621B8CE28900BFE8AC /* MapKit.framework in Frameworks */,
 				4119B8EC1B8CD17700161FF2 /* Security.framework in Frameworks */,
 				4148DF7D1B8CB3D00073075E /* WebKit.framework in Frameworks */,
 				4148DF7B1B8CB3CA0073075E /* CoreTelephony.framework in Frameworks */,
@@ -137,6 +143,8 @@
 				4148DF891B8CBCDB0073075E /* DraggablePhotoView.xib */,
 				4148DF4A1B8CA6F00073075E /* MainViewController.h */,
 				4148DF4B1B8CA6F00073075E /* MainViewController.m */,
+				41359A5E1B8CDDC600BFE8AC /* RoundedBorderView.h */,
+				41359A5F1B8CDDC600BFE8AC /* RoundedBorderView.m */,
 				4119B88A1B8CC9E500161FF2 /* NibView.h */,
 				4119B88B1B8CC9E500161FF2 /* NibView.m */,
 				4148DF4D1B8CA6F00073075E /* Main.storyboard */,
@@ -187,6 +195,7 @@
 		4148DF751B8CB0BC0073075E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41359A611B8CE28900BFE8AC /* MapKit.framework */,
 				4119B8EB1B8CD17700161FF2 /* Security.framework */,
 				4148DF7A1B8CB3CA0073075E /* CoreTelephony.framework */,
 				4148DF781B8CB3C10073075E /* CoreLocation.framework */,
@@ -345,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41359A601B8CDDC600BFE8AC /* RoundedBorderView.m in Sources */,
 				4148DF4C1B8CA6F00073075E /* MainViewController.m in Sources */,
 				4148DF491B8CA6F00073075E /* AppDelegate.m in Sources */,
 				4119B88C1B8CC9E500161FF2 /* NibView.m in Sources */,

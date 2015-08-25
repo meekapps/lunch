@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DraggablePhotoView.h"
+@class RoundedBorderView;
 
 @class CircularButton;
 
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet DraggablePhotoView *draggablePhotoView;
 @property (weak, nonatomic) IBOutlet UIImageView *behindImageView;
 @property (weak, nonatomic) IBOutlet CircularButton *cancelButton, *okButton;
+@property (weak, nonatomic) IBOutlet RoundedBorderView *stackView0, *stackView1;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 - (IBAction)leftButtonAction:(id)sender;
 - (IBAction)rightButtonAction:(id)sender;
