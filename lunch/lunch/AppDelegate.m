@@ -14,7 +14,8 @@ static NSString *const kFlurryAnalyticsApiKey = @"ZKXMN5VTXNGWHPN7SMCW";
 static NSString *const kYahooSearchApiKey = @"Jfnn0A6m";
 
 @interface AppDelegate ()
-
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (strong, nonatomic) CLLocation *recentLocation;
 @end
 
 @implementation AppDelegate
@@ -26,22 +27,62 @@ static NSString *const kYahooSearchApiKey = @"Jfnn0A6m";
   
   [YSLSetting setupWithAppId:kYahooSearchApiKey];
   
+  [self startScanningLocation];
+  
   return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
+  [self stopScanningLocation];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
+  [self stopScanningLocation];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+  [self startScanningLocation];
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
+  [self startScanningLocation];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
+  [self stopScanningLocation];
+}
+
+#pragma mark - Location
+
+- (void) startScanningLocation {
+  if (!self.locationManager) {
+    self.locationManager = [[CLLocationManager alloc] init];
+  }
+  
+  self.locationManager.delegate = self;
+  self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+  
+  if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+    [self.locationManager startUpdatingLocation];
+  } else {
+    [self.locationManager requestWhenInUseAuthorization];
+  }
+}
+
+- (void) stopScanningLocation {
+  [self.locationManager stopUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+  
+  if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorizedWhenInUse) {
+    [self.locationManager startUpdatingLocation];
+  }
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+  self.recentLocation = manager.location;
+  NSLog(@"location: %@", self.recentLocation);
 }
 
 @end

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		4148DF461B8CA6F00073075E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF451B8CA6F00073075E /* main.m */; };
 		4148DF491B8CA6F00073075E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF481B8CA6F00073075E /* AppDelegate.m */; };
-		4148DF4C1B8CA6F00073075E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF4B1B8CA6F00073075E /* ViewController.m */; };
+		4148DF4C1B8CA6F00073075E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF4B1B8CA6F00073075E /* MainViewController.m */; };
 		4148DF4F1B8CA6F00073075E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF4D1B8CA6F00073075E /* Main.storyboard */; };
 		4148DF511B8CA6F00073075E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF501B8CA6F00073075E /* Images.xcassets */; };
 		4148DF541B8CA6F00073075E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF521B8CA6F00073075E /* LaunchScreen.xib */; };
@@ -21,6 +21,9 @@
 		4148DF7D1B8CB3D00073075E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4148DF7C1B8CB3D00073075E /* WebKit.framework */; };
 		4148DF811B8CB5980073075E /* YahooSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4148DF801B8CB5980073075E /* YahooSearchKit.framework */; };
 		4148DF831B8CB5A90073075E /* YahooSearchKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF821B8CB5A90073075E /* YahooSearchKitResources.bundle */; };
+		4148DF881B8CBC490073075E /* PhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF871B8CBC490073075E /* PhotoView.m */; };
+		4148DF8A1B8CBCDB0073075E /* PhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF891B8CBCDB0073075E /* PhotoView.xib */; };
+		4148DF901B8CBE420073075E /* CircularButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF8F1B8CBE420073075E /* CircularButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +42,8 @@
 		4148DF451B8CA6F00073075E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4148DF471B8CA6F00073075E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4148DF481B8CA6F00073075E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4148DF4A1B8CA6F00073075E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4148DF4B1B8CA6F00073075E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4148DF4A1B8CA6F00073075E /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		4148DF4B1B8CA6F00073075E /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		4148DF4E1B8CA6F00073075E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4148DF501B8CA6F00073075E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4148DF531B8CA6F00073075E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -55,6 +58,11 @@
 		4148DF7C1B8CB3D00073075E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		4148DF801B8CB5980073075E /* YahooSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YahooSearchKit.framework; path = lunch/YahooSearchKit.framework; sourceTree = "<group>"; };
 		4148DF821B8CB5A90073075E /* YahooSearchKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YahooSearchKitResources.bundle; sourceTree = "<group>"; };
+		4148DF861B8CBC490073075E /* PhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoView.h; sourceTree = "<group>"; };
+		4148DF871B8CBC490073075E /* PhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoView.m; sourceTree = "<group>"; };
+		4148DF891B8CBCDB0073075E /* PhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PhotoView.xib; sourceTree = "<group>"; };
+		4148DF8E1B8CBE420073075E /* CircularButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularButton.h; sourceTree = "<group>"; };
+		4148DF8F1B8CBE420073075E /* CircularButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +113,13 @@
 			children = (
 				4148DF471B8CA6F00073075E /* AppDelegate.h */,
 				4148DF481B8CA6F00073075E /* AppDelegate.m */,
-				4148DF4A1B8CA6F00073075E /* ViewController.h */,
-				4148DF4B1B8CA6F00073075E /* ViewController.m */,
+				4148DF8E1B8CBE420073075E /* CircularButton.h */,
+				4148DF8F1B8CBE420073075E /* CircularButton.m */,
+				4148DF861B8CBC490073075E /* PhotoView.h */,
+				4148DF871B8CBC490073075E /* PhotoView.m */,
+				4148DF891B8CBCDB0073075E /* PhotoView.xib */,
+				4148DF4A1B8CA6F00073075E /* MainViewController.h */,
+				4148DF4B1B8CA6F00073075E /* MainViewController.m */,
 				4148DF4D1B8CA6F00073075E /* Main.storyboard */,
 				4148DF501B8CA6F00073075E /* Images.xcassets */,
 				4148DF521B8CA6F00073075E /* LaunchScreen.xib */,
@@ -247,6 +260,7 @@
 			files = (
 				4148DF4F1B8CA6F00073075E /* Main.storyboard in Resources */,
 				4148DF831B8CB5A90073075E /* YahooSearchKitResources.bundle in Resources */,
+				4148DF8A1B8CBCDB0073075E /* PhotoView.xib in Resources */,
 				4148DF541B8CA6F00073075E /* LaunchScreen.xib in Resources */,
 				4148DF511B8CA6F00073075E /* Images.xcassets in Resources */,
 			);
@@ -266,9 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4148DF4C1B8CA6F00073075E /* ViewController.m in Sources */,
+				4148DF4C1B8CA6F00073075E /* MainViewController.m in Sources */,
 				4148DF491B8CA6F00073075E /* AppDelegate.m in Sources */,
 				4148DF461B8CA6F00073075E /* main.m in Sources */,
+				4148DF901B8CBE420073075E /* CircularButton.m in Sources */,
+				4148DF881B8CBC490073075E /* PhotoView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  CircularButton.h
 //  lunch
 //
 //  Created by Mike Keller on 8/25/15.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface CircularButton : UIButton
 
 @end
-
