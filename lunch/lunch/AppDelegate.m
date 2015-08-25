@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 #import "Flurry.h"
+#import <YahooSearchKit/YahooSearchKit.h>
+
+static NSString *const kFlurryAnalyticsApiKey = @"ZKXMN5VTXNGWHPN7SMCW";
+static NSString *const kYahooSearchApiKey = @"Jfnn0A6m";
 
 @interface AppDelegate ()
 
@@ -18,7 +22,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   
-  [Flurry startSession:@"ZKXMN5VTXNGWHPN7SMCW"];
+  [Flurry startSession:kFlurryAnalyticsApiKey];
+  
+  [YSLSetting setupWithAppId:kYahooSearchApiKey];
   
   return YES;
 }
