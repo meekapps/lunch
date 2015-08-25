@@ -19,6 +19,8 @@
 @property (strong, nonatomic) NSArray *results;
 @property (nonatomic) NSUInteger resultsIndex;
 @property (nonatomic) BOOL showingError;
+@property (copy, nonatomic) NSString *nativeAdImageUrl;
+@property (nonatomic) BOOL shouldShowAd, didShowAd;
 @end
 
 @implementation MainViewController
@@ -30,10 +32,10 @@
   self.resultsIndex = 0;
   self.showingError = NO;
   self.statusLabel.text = @"";
+  self.didShowAd = NO;
+  self.nativeAdImageUrl = @"";
   
   [self updateFancinessButton];
-  
-  [self fetchAd];
   
   self.statusLabel.text = @"Finding you...";
   __weak MainViewController *weakSelf = self;
@@ -45,6 +47,12 @@
     
     [weakSelf loadResults];
   }];
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+  [super viewDidAppear:animated];
+  
+//  [self fetchAd];
 }
 
 - (void) viewDidDisappear:(BOOL)animated {
@@ -140,6 +148,7 @@
   if (self.resultsIndex < self.results.count) {
     NSString *mainImageUrl = [self imageUrlFromResultAtIndex:self.resultsIndex];
     self.draggablePhotoView.imageUrl = mainImageUrl;
+    self.draggablePhotoView.advertisement = NO;
     self.draggablePhotoView.hidden = NO;
     [self.draggablePhotoView resetPosition];
   } else {
@@ -205,6 +214,7 @@
   [Flurry logEvent:@"TappedRight"];
   [self performSegueWithIdentifier:@"ShowDetail" sender:self];
   [self performSelector:@selector(handleNo) withObject:nil afterDelay:1.0F];
+  
 }
 
 - (IBAction)priceFilterAction:(id)sender {
@@ -265,6 +275,14 @@
   }
   
   [self updateUi];
+  
+  if (self.nativeAdImageUrl && self.shouldShowAd) {
+    self.didShowAd = YES;
+    self.shouldShowAd = NO;
+    
+    self.draggablePhotoView.advertisement = YES;
+    self.draggablePhotoView.imageUrl = self.nativeAdImageUrl;
+  }
 }
 
 - (NSString*) titleForFancinessLevel:(NSUInteger)fanciness {
@@ -286,7 +304,34 @@
 }
 
 - (void) adNativeDidFetchAd:(FlurryAdNative *)nativeAd {
-  NSLog(@"native ad: %@", nativeAd);
+  if ([nativeAd isKindOfClass:[FlurryAdNative class]] == NO || !nativeAd || ![nativeAd valueForKey:@"assetList"]) return;
+  
+  @try {
+    NSArray *assetList = [nativeAd valueForKey:@"assetList"] ? nativeAd.assetList : nil;
+    if (!assetList) return;
+    for (int i = 0; i < assetList.count; i++) {
+      FlurryAdNativeAsset *asset = assetList.count > i ? assetList[i] : nil;
+      if (!asset)return;
+      if ([asset.name isEqualToString:@"secHqImage"]) {
+        NSString *adUrl = asset.value;
+        self.nativeAdImageUrl = adUrl;
+        self.shouldShowAd = YES;
+        self.didShowAd = NO;
+        [self.behindImageView setImageWithURL:[NSURL URLWithString:self.nativeAdImageUrl]];
+      }
+    }
+  }
+  @catch (NSException *exception) {
+    NSLog(@"caught exception: %@", [exception description]);
+  }
+  @finally {
+    NSLog(@"moving on then");
+  }
+
+}
+
+- (void) adNativeWillPresent:(FlurryAdNative *)nativeAd {
+  NSLog(@"will present native ad");
 }
 
 - (void) adNative:(FlurryAdNative *)nativeAd adError:(FlurryAdError)adError errorDescription:(NSError *)errorDescription {

@@ -27,7 +27,9 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (copy, nonatomic) NSString *imageUrl;
+@property (weak, nonatomic) IBOutlet UILabel *advertismentLabel;
 @property (unsafe_unretained, nonatomic, assign) IBOutlet id <DraggablePhotoViewDelegate> delegate;
+@property (nonatomic) BOOL advertisement;
 
 - (IBAction) handlePan:(id)sender;
 

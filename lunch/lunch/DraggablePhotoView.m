@@ -35,6 +35,7 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
     self.layer.borderColor = [UIColor blackColor].CGColor;
     self.layer.borderWidth = 0.5F;
     self.clipsToBounds = YES;
+    self.advertisement = NO;
   }
   return self;
 }
@@ -43,6 +44,12 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
   _imageUrl = imageUrl;
   
   [self.imageView setImageWithURL:[NSURL URLWithString:imageUrl]];
+}
+
+- (void) setAdvertisement:(BOOL)advertisement {
+  _advertisement = advertisement;
+  
+  self.advertismentLabel.hidden = !advertisement;
 }
 
 - (IBAction)handlePan:(UIPanGestureRecognizer*)panRecognizer {

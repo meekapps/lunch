@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DraggablePhotoView">
             <connections>
+                <outlet property="advertismentLabel" destination="rll-t9-PhA" id="RJ1-A5-wzr"/>
                 <outlet property="imageView" destination="wSP-pm-Ye7" id="A0a-sx-bOq"/>
             </connections>
         </placeholder>
@@ -18,6 +19,12 @@
                     <rect key="frame" x="5" y="5" width="325" height="325"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Advertisement" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rll-t9-PhA">
+                    <rect key="frame" x="231.5" y="305.5" width="90.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <gestureRecognizers/>
@@ -26,9 +33,11 @@
                 <constraint firstAttribute="trailing" secondItem="wSP-pm-Ye7" secondAttribute="trailing" constant="5" id="AtW-QU-4fh"/>
                 <constraint firstAttribute="trailing" secondItem="wSP-pm-Ye7" secondAttribute="trailing" id="DoU-Ey-N2r"/>
                 <constraint firstAttribute="bottom" secondItem="wSP-pm-Ye7" secondAttribute="bottom" constant="5" id="Q3E-mp-Txs"/>
+                <constraint firstAttribute="bottom" secondItem="rll-t9-PhA" secondAttribute="bottom" constant="13" id="T4d-0I-QxA"/>
                 <constraint firstAttribute="bottom" secondItem="wSP-pm-Ye7" secondAttribute="bottom" id="ZIx-Lc-63c"/>
                 <constraint firstItem="wSP-pm-Ye7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="Za8-rb-NZQ"/>
                 <constraint firstItem="wSP-pm-Ye7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bfN-Ea-mS3"/>
+                <constraint firstAttribute="trailing" secondItem="rll-t9-PhA" secondAttribute="trailing" constant="13" id="fQd-ea-ZXv"/>
                 <constraint firstAttribute="bottom" secondItem="wSP-pm-Ye7" secondAttribute="bottom" id="fVu-hi-HpQ"/>
                 <constraint firstItem="wSP-pm-Ye7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="gRQ-bT-rtw"/>
                 <constraint firstItem="wSP-pm-Ye7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="joI-Oa-qSr"/>

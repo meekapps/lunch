@@ -42,6 +42,7 @@
       NSString *categoryString = [self.detail[@"categoryName"] lowercaseString];
       NSString *distanceString = location[@"distance"];
       NSString *optionalPriceString = self.detail[@"price"] ? [NSString stringWithFormat:@"It's %@,", [self.detail[@"price"] lowercaseString]] : @"It";
+      optionalPriceString = [optionalPriceString stringByReplacingOccurrencesOfString:@"moderate" withString:@"moderately priced"];
       NSString *fullDescription = [NSString stringWithFormat:@"%@ is a %@. %@ is %@ meters away, and is open right now.", nameString, categoryString, optionalPriceString, distanceString];
       self.textView.text = fullDescription;
     }
