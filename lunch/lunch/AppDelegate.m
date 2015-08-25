@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "Flurry.h"
-#import <YahooSearchKit/YahooSearchKit.h>
 
 static NSString *const kFlurryAnalyticsApiKey = @"ZKXMN5VTXNGWHPN7SMCW";
 static NSString *const kYahooSearchApiKey = @"Jfnn0A6m";
@@ -24,7 +23,8 @@ static NSString *const kYahooSearchApiKey = @"Jfnn0A6m";
   
   [Flurry startSession:kFlurryAnalyticsApiKey];
   
-  [YSLSetting setupWithAppId:kYahooSearchApiKey];
+  NSDictionary *defaults = @{@"priceFilter" : @(2)};
+  [[NSUserDefaults standardUserDefaults] registerDefaults:defaults];
   
   [self startScanningLocation];
   

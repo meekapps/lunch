@@ -12,6 +12,15 @@
 		4119B8EC1B8CD17700161FF2 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4119B8EB1B8CD17700161FF2 /* Security.framework */; };
 		41359A601B8CDDC600BFE8AC /* RoundedBorderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 41359A5F1B8CDDC600BFE8AC /* RoundedBorderView.m */; };
 		41359A621B8CE28900BFE8AC /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A611B8CE28900BFE8AC /* MapKit.framework */; };
+		41359A641B8CFF3800BFE8AC /* libFlurryAds_6.7.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A631B8CFF3800BFE8AC /* libFlurryAds_6.7.0.a */; };
+		41359A731B8CFFAC00BFE8AC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A721B8CFFAC00BFE8AC /* AVFoundation.framework */; };
+		41359A751B8CFFB700BFE8AC /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A741B8CFFB700BFE8AC /* CoreMedia.framework */; };
+		41359A771B8CFFC800BFE8AC /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A761B8CFFC800BFE8AC /* StoreKit.framework */; };
+		41359A791B8CFFD100BFE8AC /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A781B8CFFD100BFE8AC /* libz.dylib */; };
+		41359A7B1B8CFFDA00BFE8AC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A7A1B8CFFDA00BFE8AC /* MediaPlayer.framework */; };
+		41359A801B8D03DA00BFE8AC /* MapAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 41359A7F1B8D03DA00BFE8AC /* MapAnnotation.m */; };
+		41359A821B8D1BBB00BFE8AC /* YahooSearchKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 41359A811B8D1BBB00BFE8AC /* YahooSearchKitResources.bundle */; };
+		41359A841B8D1BC000BFE8AC /* YahooSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41359A831B8D1BC000BFE8AC /* YahooSearchKit.framework */; };
 		4148DF461B8CA6F00073075E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF451B8CA6F00073075E /* main.m */; };
 		4148DF491B8CA6F00073075E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF481B8CA6F00073075E /* AppDelegate.m */; };
 		4148DF4C1B8CA6F00073075E /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF4B1B8CA6F00073075E /* MainViewController.m */; };
@@ -24,8 +33,6 @@
 		4148DF791B8CB3C10073075E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4148DF781B8CB3C10073075E /* CoreLocation.framework */; };
 		4148DF7B1B8CB3CA0073075E /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4148DF7A1B8CB3CA0073075E /* CoreTelephony.framework */; };
 		4148DF7D1B8CB3D00073075E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4148DF7C1B8CB3D00073075E /* WebKit.framework */; };
-		4148DF811B8CB5980073075E /* YahooSearchKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4148DF801B8CB5980073075E /* YahooSearchKit.framework */; };
-		4148DF831B8CB5A90073075E /* YahooSearchKitResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF821B8CB5A90073075E /* YahooSearchKitResources.bundle */; };
 		4148DF881B8CBC490073075E /* DraggablePhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF871B8CBC490073075E /* DraggablePhotoView.m */; };
 		4148DF8A1B8CBCDB0073075E /* DraggablePhotoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4148DF891B8CBCDB0073075E /* DraggablePhotoView.xib */; };
 		4148DF901B8CBE420073075E /* CircularButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4148DF8F1B8CBE420073075E /* CircularButton.m */; };
@@ -51,6 +58,29 @@
 		41359A5E1B8CDDC600BFE8AC /* RoundedBorderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedBorderView.h; sourceTree = "<group>"; };
 		41359A5F1B8CDDC600BFE8AC /* RoundedBorderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedBorderView.m; sourceTree = "<group>"; };
 		41359A611B8CE28900BFE8AC /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		41359A631B8CFF3800BFE8AC /* libFlurryAds_6.7.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAds_6.7.0.a; path = "../../../../../Downloads/Flurry iPhone SDK viPhone 6/Flurry-iOS-6.7.0/FlurryAds/libFlurryAds_6.7.0.a"; sourceTree = "<group>"; };
+		41359A651B8CFF5500BFE8AC /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdDelegate.h; sourceTree = "<group>"; };
+		41359A661B8CFF5500BFE8AC /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAds.h; sourceTree = "<group>"; };
+		41359A671B8CFF5D00BFE8AC /* FlurryAdError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdError.h; sourceTree = "<group>"; };
+		41359A681B8CFF5D00BFE8AC /* FlurryAdTargeting.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdTargeting.h; sourceTree = "<group>"; };
+		41359A691B8CFF6400BFE8AC /* FlurryAdNative.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdNative.h; sourceTree = "<group>"; };
+		41359A6A1B8CFF6400BFE8AC /* FlurryAdNative+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FlurryAdNative+Private.h"; sourceTree = "<group>"; };
+		41359A6B1B8CFF6400BFE8AC /* FlurryAdNativeAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdNativeAsset.h; sourceTree = "<group>"; };
+		41359A6C1B8CFF6400BFE8AC /* FlurryAdNativeDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdNativeDelegate.h; sourceTree = "<group>"; };
+		41359A6D1B8CFF6400BFE8AC /* FlurryAdNativeStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdNativeStyle.h; sourceTree = "<group>"; };
+		41359A6E1B8CFF6A00BFE8AC /* FlurryAdInterstitial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdInterstitial.h; sourceTree = "<group>"; };
+		41359A6F1B8CFF6A00BFE8AC /* FlurryAdInterstitialDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdInterstitialDelegate.h; sourceTree = "<group>"; };
+		41359A701B8CFF7800BFE8AC /* FlurryAdBanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdBanner.h; sourceTree = "<group>"; };
+		41359A711B8CFF7800BFE8AC /* FlurryAdBannerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdBannerDelegate.h; sourceTree = "<group>"; };
+		41359A721B8CFFAC00BFE8AC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		41359A741B8CFFB700BFE8AC /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		41359A761B8CFFC800BFE8AC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		41359A781B8CFFD100BFE8AC /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		41359A7A1B8CFFDA00BFE8AC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		41359A7E1B8D03DA00BFE8AC /* MapAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAnnotation.h; sourceTree = "<group>"; };
+		41359A7F1B8D03DA00BFE8AC /* MapAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAnnotation.m; sourceTree = "<group>"; };
+		41359A811B8D1BBB00BFE8AC /* YahooSearchKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YahooSearchKitResources.bundle; sourceTree = "<group>"; };
+		41359A831B8D1BC000BFE8AC /* YahooSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = YahooSearchKit.framework; sourceTree = "<group>"; };
 		4148DF401B8CA6F00073075E /* lunch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lunch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4148DF441B8CA6F00073075E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4148DF451B8CA6F00073075E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -70,8 +100,6 @@
 		4148DF781B8CB3C10073075E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		4148DF7A1B8CB3CA0073075E /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		4148DF7C1B8CB3D00073075E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		4148DF801B8CB5980073075E /* YahooSearchKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = YahooSearchKit.framework; path = lunch/YahooSearchKit.framework; sourceTree = "<group>"; };
-		4148DF821B8CB5A90073075E /* YahooSearchKitResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = YahooSearchKitResources.bundle; sourceTree = "<group>"; };
 		4148DF861B8CBC490073075E /* DraggablePhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DraggablePhotoView.h; sourceTree = "<group>"; };
 		4148DF871B8CBC490073075E /* DraggablePhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DraggablePhotoView.m; sourceTree = "<group>"; };
 		4148DF891B8CBCDB0073075E /* DraggablePhotoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DraggablePhotoView.xib; sourceTree = "<group>"; };
@@ -87,15 +115,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				41359A7B1B8CFFDA00BFE8AC /* MediaPlayer.framework in Frameworks */,
+				41359A791B8CFFD100BFE8AC /* libz.dylib in Frameworks */,
+				41359A771B8CFFC800BFE8AC /* StoreKit.framework in Frameworks */,
+				41359A751B8CFFB700BFE8AC /* CoreMedia.framework in Frameworks */,
+				41359A731B8CFFAC00BFE8AC /* AVFoundation.framework in Frameworks */,
 				41359A621B8CE28900BFE8AC /* MapKit.framework in Frameworks */,
 				4119B8EC1B8CD17700161FF2 /* Security.framework in Frameworks */,
 				4148DF7D1B8CB3D00073075E /* WebKit.framework in Frameworks */,
 				4148DF7B1B8CB3CA0073075E /* CoreTelephony.framework in Frameworks */,
-				4148DF811B8CB5980073075E /* YahooSearchKit.framework in Frameworks */,
 				4148DF791B8CB3C10073075E /* CoreLocation.framework in Frameworks */,
 				4148DF741B8CB0B00073075E /* SystemConfiguration.framework in Frameworks */,
+				41359A641B8CFF3800BFE8AC /* libFlurryAds_6.7.0.a in Frameworks */,
 				4148DF721B8CB04C0073075E /* libFlurry_6.7.0.a in Frameworks */,
 				F77CF0991D3ABD7673A045AA /* libPods.a in Frameworks */,
+				41359A841B8D1BC000BFE8AC /* YahooSearchKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +177,8 @@
 				4148DF891B8CBCDB0073075E /* DraggablePhotoView.xib */,
 				4148DF4A1B8CA6F00073075E /* MainViewController.h */,
 				4148DF4B1B8CA6F00073075E /* MainViewController.m */,
+				41359A7E1B8D03DA00BFE8AC /* MapAnnotation.h */,
+				41359A7F1B8D03DA00BFE8AC /* MapAnnotation.m */,
 				41359A5E1B8CDDC600BFE8AC /* RoundedBorderView.h */,
 				41359A5F1B8CDDC600BFE8AC /* RoundedBorderView.m */,
 				4119B88A1B8CC9E500161FF2 /* NibView.h */,
@@ -158,7 +194,7 @@
 		4148DF431B8CA6F00073075E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				4148DF821B8CB5A90073075E /* YahooSearchKitResources.bundle */,
+				41359A811B8D1BBB00BFE8AC /* YahooSearchKitResources.bundle */,
 				4148DF441B8CA6F00073075E /* Info.plist */,
 				4148DF451B8CA6F00073075E /* main.m */,
 			);
@@ -185,6 +221,20 @@
 		4148DF6F1B8CB0370073075E /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
+				41359A701B8CFF7800BFE8AC /* FlurryAdBanner.h */,
+				41359A711B8CFF7800BFE8AC /* FlurryAdBannerDelegate.h */,
+				41359A6E1B8CFF6A00BFE8AC /* FlurryAdInterstitial.h */,
+				41359A6F1B8CFF6A00BFE8AC /* FlurryAdInterstitialDelegate.h */,
+				41359A691B8CFF6400BFE8AC /* FlurryAdNative.h */,
+				41359A6A1B8CFF6400BFE8AC /* FlurryAdNative+Private.h */,
+				41359A6B1B8CFF6400BFE8AC /* FlurryAdNativeAsset.h */,
+				41359A6C1B8CFF6400BFE8AC /* FlurryAdNativeDelegate.h */,
+				41359A6D1B8CFF6400BFE8AC /* FlurryAdNativeStyle.h */,
+				41359A671B8CFF5D00BFE8AC /* FlurryAdError.h */,
+				41359A681B8CFF5D00BFE8AC /* FlurryAdTargeting.h */,
+				41359A651B8CFF5500BFE8AC /* FlurryAdDelegate.h */,
+				41359A661B8CFF5500BFE8AC /* FlurryAds.h */,
+				41359A631B8CFF3800BFE8AC /* libFlurryAds_6.7.0.a */,
 				4148DF701B8CB04C0073075E /* Flurry.h */,
 				4148DF711B8CB04C0073075E /* libFlurry_6.7.0.a */,
 			);
@@ -195,15 +245,20 @@
 		4148DF751B8CB0BC0073075E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				41359A7A1B8CFFDA00BFE8AC /* MediaPlayer.framework */,
+				41359A781B8CFFD100BFE8AC /* libz.dylib */,
+				41359A761B8CFFC800BFE8AC /* StoreKit.framework */,
+				41359A741B8CFFB700BFE8AC /* CoreMedia.framework */,
+				41359A721B8CFFAC00BFE8AC /* AVFoundation.framework */,
 				41359A611B8CE28900BFE8AC /* MapKit.framework */,
 				4119B8EB1B8CD17700161FF2 /* Security.framework */,
 				4148DF7A1B8CB3CA0073075E /* CoreTelephony.framework */,
 				4148DF781B8CB3C10073075E /* CoreLocation.framework */,
 				4148DF6F1B8CB0370073075E /* Flurry */,
 				4148DF731B8CB0B00073075E /* SystemConfiguration.framework */,
-				4148DF801B8CB5980073075E /* YahooSearchKit.framework */,
 				4148DF7C1B8CB3D00073075E /* WebKit.framework */,
 				A7E0DB17087C42B8E924953E /* libPods.a */,
+				41359A831B8D1BC000BFE8AC /* YahooSearchKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -300,8 +355,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				4148DF4F1B8CA6F00073075E /* Main.storyboard in Resources */,
-				4148DF831B8CB5A90073075E /* YahooSearchKitResources.bundle in Resources */,
 				4148DF8A1B8CBCDB0073075E /* DraggablePhotoView.xib in Resources */,
+				41359A821B8D1BBB00BFE8AC /* YahooSearchKitResources.bundle in Resources */,
 				4148DF541B8CA6F00073075E /* LaunchScreen.xib in Resources */,
 				4148DF511B8CA6F00073075E /* Images.xcassets in Resources */,
 			);
@@ -356,6 +411,7 @@
 			files = (
 				41359A601B8CDDC600BFE8AC /* RoundedBorderView.m in Sources */,
 				4148DF4C1B8CA6F00073075E /* MainViewController.m in Sources */,
+				41359A801B8D03DA00BFE8AC /* MapAnnotation.m in Sources */,
 				4148DF491B8CA6F00073075E /* AppDelegate.m in Sources */,
 				4119B88C1B8CC9E500161FF2 /* NibView.m in Sources */,
 				4148DF461B8CA6F00073075E /* main.m in Sources */,
@@ -499,6 +555,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lunch",
 					"$(PROJECT_DIR)/lunch/Flurry",
+					/Users/keller/Downloads/Flurry,
+					iPhone,
+					SDK,
+					viPhone,
+					"6/Flurry-iOS-6.7.0/FlurryAds",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",
@@ -525,6 +586,11 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/lunch",
 					"$(PROJECT_DIR)/lunch/Flurry",
+					/Users/keller/Downloads/Flurry,
+					iPhone,
+					SDK,
+					viPhone,
+					"6/Flurry-iOS-6.7.0/FlurryAds",
 				);
 				OTHER_LDFLAGS = (
 					"-ObjC",

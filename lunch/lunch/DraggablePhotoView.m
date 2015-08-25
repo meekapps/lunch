@@ -101,7 +101,7 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
   if (self.translation.x > kDragThreshold) {
     [self rightAction];
     
-  } else if (self.translation.y < -kDragThreshold) {
+  } else if (self.translation.x < -kDragThreshold) {
     [self leftAction];
     
   //Not over swipe threshold.

@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "RoundedBorderView.h"
 #import "CircularButton.h"
+#import "Flurry.h"
 
 @interface MainViewController ()
 @property (strong, nonatomic) NSArray *results;
@@ -30,6 +31,11 @@
   self.showingError = NO;
   self.statusLabel.text = @"";
   
+  [self updateFancinessButton];
+  
+  [self fetchAd];
+  
+  self.statusLabel.text = @"Finding you...";
   __weak MainViewController *weakSelf = self;
   __block id observer = [[NSNotificationCenter defaultCenter] addObserverForName:@"UpdatedLocation" object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *note) {
     
@@ -51,6 +57,11 @@
   [super didReceiveMemoryWarning];
 }
 
+- (void) updateFancinessButton {
+  NSNumber *priceFilterNumber = [[NSUserDefaults standardUserDefaults] objectForKey:@"priceFilter"];
+  self.navigationItem.rightBarButtonItem.title = [self titleForFancinessLevel:[priceFilterNumber unsignedIntegerValue]];
+}
+
 - (void) loadResults {
   AppDelegate *appDel = (AppDelegate*)[UIApplication sharedApplication].delegate;
   self.statusLabel.text = @"Loading...";
@@ -63,7 +74,8 @@
   [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
   NSNumber *latitudeNumber = @(location.coordinate.latitude);
   NSNumber *longitudeNumber = @(location.coordinate.longitude);
-  NSString *urlString = [NSString stringWithFormat:@"https://lunchserver.herokuapp.com/search?latitude=%@&longitude=%@", latitudeNumber, longitudeNumber];
+  NSNumber *fanciness = [[NSUserDefaults standardUserDefaults] objectForKey:@"priceFilter"];
+  NSString *urlString = [NSString stringWithFormat:@"https://lunchserver.herokuapp.com/search?latitude=%@&longitude=%@&maxTier=%@", latitudeNumber, longitudeNumber, fanciness];
   NSLog(@"requesting: %@", urlString);
   __weak MainViewController *weakSelf = self;
   [[[NSURLSession sharedSession] dataTaskWithURL:[NSURL URLWithString:urlString]
@@ -153,6 +165,7 @@
 }
 
 - (void) draggablePhotoViewDidSwipeLeft:(DraggablePhotoView *)photoView {
+  [Flurry logEvent:@"SwipedLeft"];
   [self handleNo];
   
   [self draggablePhotoView:photoView shouldUpdateOverlayWithOpacity:0.0F right:NO];
@@ -163,6 +176,13 @@
 }
 
 - (void) draggablePhotoViewDidSwipeRight:(DraggablePhotoView *)photoView {
+  if (self.results[self.resultsIndex]) {
+    id detail = self.results[self.resultsIndex];
+    if (detail[@"categoryId"]) {
+      NSString *categoryId = detail[@"categoryId"];
+      [Flurry logEvent:@"SwipedRight" withParameters:@{@"categoryId" : categoryId}];
+    }
+  }
   [self performSegueWithIdentifier:@"ShowDetail" sender:self];
   [self handleNo];
   
@@ -172,16 +192,50 @@
 #pragma mark - Actions
 
 - (IBAction)retryAction:(id)sender {
-  NSLog(@"retry");
+  self.errorRetryButton.hidden = YES;
+  [self loadResults];
 }
 
 - (IBAction)leftButtonAction:(id)sender {
+  [Flurry logEvent:@"TappedLeft"];
   [self handleNo];
 }
 
 - (IBAction)rightButtonAction:(id)sender {
+  [Flurry logEvent:@"TappedRight"];
   [self performSegueWithIdentifier:@"ShowDetail" sender:self];
   [self performSelector:@selector(handleNo) withObject:nil afterDelay:1.0F];
+}
+
+- (IBAction)priceFilterAction:(id)sender {
+  UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"How fancy are feeling you today?" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+  
+  __weak MainViewController *weakSelf = self;
+  
+  void (^AddFancinessAction)(NSUInteger fanciness) = ^void(NSUInteger fanciness) {
+    NSString *fancinessString = [weakSelf titleForFancinessLevel:fanciness];
+    UIAlertAction *fancinessAction = [UIAlertAction actionWithTitle:fancinessString style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+      [[NSUserDefaults standardUserDefaults] setInteger:fanciness forKey:@"priceFilter"];
+      [[NSUserDefaults standardUserDefaults] synchronize];
+      [weakSelf updateFancinessButton];
+      [weakSelf loadResults];
+    }];
+    [alertController addAction:fancinessAction];
+  };
+  
+  for (NSUInteger i = 4; i >= 1; i--) {
+    AddFancinessAction(i);
+  }
+  
+  UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
+                                                         style:UIAlertActionStyleCancel
+                                                       handler:^(UIAlertAction *action) {}];
+  
+  [alertController addAction:cancelAction];
+  
+  [self.navigationController presentViewController:alertController
+                                          animated:YES
+                                        completion:^{}];
 }
 
 #pragma mark - Navigation
@@ -196,8 +250,8 @@
 - (NSString*) imageUrlFromResultAtIndex:(NSUInteger)index {
   id result = self.results[index];
   if (result) {
-    if (result[@"pictureUrlCropped"]) {
-      return result[@"pictureUrlCropped"];
+    if (result[@"pictureUrlRaw"]) {
+      return result[@"pictureUrlRaw"];
     }
   }
   return nil;
@@ -212,5 +266,32 @@
   
   [self updateUi];
 }
+
+- (NSString*) titleForFancinessLevel:(NSUInteger)fanciness {
+  NSMutableString *priceFilterString = [@"" mutableCopy];
+  for (NSUInteger i = 0; i < fanciness; i++) {
+    [priceFilterString appendString:@"$"];
+  }
+  return [priceFilterString copy];
+}
+
+#pragma mark - Flurry Ad
+
+- (void) fetchAd {
+  FlurryAdNative *nativeAd = [[FlurryAdNative alloc] initWithSpace:@"main_ad"];
+  nativeAd.adDelegate = self;
+  nativeAd.viewControllerForPresentation = self;
+  nativeAd.trackingView = self.view;
+  [nativeAd fetchAd];
+}
+
+- (void) adNativeDidFetchAd:(FlurryAdNative *)nativeAd {
+  NSLog(@"native ad: %@", nativeAd);
+}
+
+- (void) adNative:(FlurryAdNative *)nativeAd adError:(FlurryAdError)adError errorDescription:(NSError *)errorDescription {
+  NSLog(@"ad native error: %@", errorDescription);
+}
+
 
 @end

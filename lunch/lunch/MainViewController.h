@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "DraggablePhotoView.h"
+#import "FlurryAdNative.h"
+
 @class RoundedBorderView;
 
 @class CircularButton;
 
-@interface MainViewController : UIViewController <DraggablePhotoViewDelegate>
+@interface MainViewController : UIViewController <DraggablePhotoViewDelegate, FlurryAdNativeDelegate>
 
 @property (weak, nonatomic) IBOutlet DraggablePhotoView *draggablePhotoView;
 @property (weak, nonatomic) IBOutlet UIImageView *behindImageView;
@@ -25,6 +27,6 @@
 - (IBAction)leftButtonAction:(id)sender;
 - (IBAction)rightButtonAction:(id)sender;
 - (IBAction)retryAction:(id)sender;
-
+- (IBAction)priceFilterAction:(id)sender;
 @end
 
