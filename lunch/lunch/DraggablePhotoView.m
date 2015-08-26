@@ -96,7 +96,8 @@ static NSTimeInterval const kFinishAnimationDuration = 0.3;
 }
 
 - (void) updateWillSwipeDelegate {
-  CGFloat opacity = MIN(fabs(self.translation.x)/100, 1.0F);
+  
+  CGFloat opacity = MIN(fabs(self.translation.x)/100.0F, 1.0F);
   BOOL right = self.translation.x > 0.0F;
   
   if ([self.delegate respondsToSelector:@selector(draggablePhotoView:shouldUpdateOverlayWithOpacity:right:)]) {

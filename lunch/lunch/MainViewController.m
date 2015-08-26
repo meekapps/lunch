@@ -19,6 +19,7 @@
 @property (strong, nonatomic) NSArray *results;
 @property (nonatomic) NSUInteger resultsIndex;
 @property (nonatomic) BOOL showingError;
+@property (strong, nonatomic) FlurryAdNative *nativeAd;
 @property (copy, nonatomic) NSString *nativeAdImageUrl;
 @property (nonatomic) BOOL shouldShowAd, didShowAd;
 @end
@@ -49,12 +50,6 @@
   }];
 }
 
-- (void) viewDidAppear:(BOOL)animated {
-  [super viewDidAppear:animated];
-  
-//  [self fetchAd];
-}
-
 - (void) viewDidDisappear:(BOOL)animated {
   [super viewDidDisappear:animated];
   
@@ -83,6 +78,7 @@
   NSNumber *latitudeNumber = @(location.coordinate.latitude);
   NSNumber *longitudeNumber = @(location.coordinate.longitude);
   NSNumber *fanciness = [[NSUserDefaults standardUserDefaults] objectForKey:@"priceFilter"];
+  
   NSString *urlString = [NSString stringWithFormat:@"https://lunchserver.herokuapp.com/search?latitude=%@&longitude=%@&maxTier=%@", latitudeNumber, longitudeNumber, fanciness];
   NSLog(@"requesting: %@", urlString);
   __weak MainViewController *weakSelf = self;
@@ -94,7 +90,7 @@
                                   
                                   if (error) {
                                     NSLog(@"error: %@", error);
-                                    [self showErrorIfNeeded];
+                                    [weakSelf showErrorIfNeeded];
                                   } else {
                                     NSError *jsonError = nil;
                                     id result = [NSJSONSerialization JSONObjectWithData:data
@@ -102,12 +98,13 @@
                                                                                   error:&jsonError];
                                     if (jsonError) {
                                       NSLog(@"json error: %@", jsonError);
-                                      [self showErrorIfNeeded];
+                                      [weakSelf showErrorIfNeeded];
                                     } else {
                                       if (result[@"venues"]) {
                                         weakSelf.results = result[@"venues"];
                                         NSLog(@"result: %@", result);
                                         [weakSelf updateUi];
+                                        [weakSelf fetchAd];
                                       }
                                     }
                                   }
@@ -185,17 +182,25 @@
 }
 
 - (void) draggablePhotoViewDidSwipeRight:(DraggablePhotoView *)photoView {
-  if (self.results[self.resultsIndex]) {
-    id detail = self.results[self.resultsIndex];
-    if (detail[@"categoryId"]) {
-      NSString *categoryId = detail[@"categoryId"];
-      [Flurry logEvent:@"SwipedRight" withParameters:@{@"categoryId" : categoryId}];
+  //Showing venue
+  if (self.didShowAd == NO) {
+    if (self.results[self.resultsIndex]) {
+      id detail = self.results[self.resultsIndex];
+      if (detail[@"categoryId"]) {
+        NSString *categoryId = detail[@"categoryId"];
+        [Flurry logEvent:@"SwipedRight" withParameters:@{@"categoryId" : categoryId}];
+      }
     }
+    [self performSegueWithIdentifier:@"ShowDetail" sender:self];
+    [self handleNo];
+    
+    [self draggablePhotoView:photoView shouldUpdateOverlayWithOpacity:0.0F right:YES];
+    
+  //Dragged right while ad is showing.
+  } else {
+    self.didShowAd = NO;
+    [self handleNo];
   }
-  [self performSegueWithIdentifier:@"ShowDetail" sender:self];
-  [self handleNo];
-  
-  [self draggablePhotoView:photoView shouldUpdateOverlayWithOpacity:0.0F right:YES];
 }
 
 #pragma mark - Actions
@@ -212,8 +217,15 @@
 
 - (IBAction)rightButtonAction:(id)sender {
   [Flurry logEvent:@"TappedRight"];
-  [self performSegueWithIdentifier:@"ShowDetail" sender:self];
-  [self performSelector:@selector(handleNo) withObject:nil afterDelay:1.0F];
+  if (!self.didShowAd) {
+    [self performSegueWithIdentifier:@"ShowDetail" sender:self];
+    [self performSelector:@selector(handleNo) withObject:nil afterDelay:1.0F];
+    
+  //Tapped right while ad is showing.
+  } else {
+    self.didShowAd = NO;
+    [self handleNo];
+  }
   
 }
 
@@ -296,17 +308,17 @@
 #pragma mark - Flurry Ad
 
 - (void) fetchAd {
-  FlurryAdNative *nativeAd = [[FlurryAdNative alloc] initWithSpace:@"main_ad"];
-  nativeAd.adDelegate = self;
-  nativeAd.viewControllerForPresentation = self;
-  nativeAd.trackingView = self.view;
-  [nativeAd fetchAd];
+  self.nativeAd = [[FlurryAdNative alloc] initWithSpace:@"main_ad"];
+  self.nativeAd.adDelegate = self;
+//  nativeAd.viewControllerForPresentation = self;
+//  nativeAd.trackingView = self.draggablePhotoView;
+  [self.nativeAd fetchAd];
 }
 
 - (void) adNativeDidFetchAd:(FlurryAdNative *)nativeAd {
-  if ([nativeAd isKindOfClass:[FlurryAdNative class]] == NO || !nativeAd || ![nativeAd valueForKey:@"assetList"]) return;
-  
   @try {
+  if ([nativeAd isKindOfClass:[FlurryAdNative class]] == NO || !nativeAd || ![nativeAd valueForKey:@"assetList"]) return;
+
     NSArray *assetList = [nativeAd valueForKey:@"assetList"] ? nativeAd.assetList : nil;
     if (!assetList) return;
     for (int i = 0; i < assetList.count; i++) {
